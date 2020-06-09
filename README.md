@@ -1,7 +1,7 @@
 # README
 
 # Lan management website in Ruby on Rails
-
+## Note this project is not actively being maintained, so there might be security vulnerabilities associated with using the site.
 Application overview:
 
 * Ruby version 2.5.1
