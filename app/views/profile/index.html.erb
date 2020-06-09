@@ -1,0 +1,51 @@
+<h1>
+  Hi <%= current_member.first_name %>
+  <small>Display name :<%= current_member.display_name %></small>
+</h1>
+<h2>Due to pay</h2>
+<table>
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Price</th>
+    <th>Date</th>
+  </tr>
+  </thead>
+  <% current_member.orders.where(paid:false).each do |order| %>
+    <% order.item_orders.each do |item| %>
+      <tbody>
+      <tr>
+        <td data-label="Name"><%= item.admin_item.name %></td>
+        <td data-label="Price">£<%= item.price * item.quantity %></td>
+        <td data-label="created_at"><%= item.created_at %></td>
+      </tr>
+      </tbody>
+    <% end %>
+  <% end %>
+</table>
+
+<h2>Paid Orders</h2>
+<table>
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Price</th>
+    <th>Date</th>
+  </tr>
+  </thead>
+<% current_member.orders.where(paid:true).each do |order| %>
+    <% order.item_orders.each do |item| %>
+      <tbody>
+      <tr>
+        <td data-label="Name"><%= item.admin_item.name %></td>
+        <td data-label="Price">£<%= item.price * item.quantity %></td>
+        <td data-label="created_at"><%= item.created_at %></td>
+      </tr>
+      </tbody>
+    <% end %>
+<% end %>
+</table>
+<%= link_to 'Seat Booking',seat_booking_index_path,class:'button' %>
+<%= link_to 'Edit',profile_edit_path,class: 'button' %>
+<%= link_to 'Remove account', profile_remove_account_path, class: "button", data: { confirm: "Are you sure?" }%>
+<%= link_to "Change your password", edit_member_registration_url,class: "button" %>

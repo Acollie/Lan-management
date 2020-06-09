@@ -1,0 +1,17 @@
+<h1>Admin Event Page</h1>
+<%= link_to "New Event",admin_event_new_path,class: 'button' %>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Time</th>
+    <th>Actions</th>
+  </tr>
+  <% @events.each do |event| %>
+  <tr>
+    <td><%= event.name %></td>
+    <td><%= table_date(event.start_time) %></td>
+    <td><%= link_to 'Edit',admin_event_edit_path(event) %> <%= link_to 'Destroy', admin_event_remove_path(event), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+  </tr>
+  <% end %>
+</table>

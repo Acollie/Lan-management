@@ -1,0 +1,16 @@
+<h1>Event#index</h1>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Start Time</th>
+    <th>Actions</th>
+  </tr>
+  <% @events.each do |event| %>
+    <tr>
+      <td><%= event.name %></td>
+      <td><%= event.start_time %></td>
+      <td><%= link_to 'More info',event_show_url(event),class: 'button' %></td>
+
+    </tr>
+    <% end %>
+  </table>

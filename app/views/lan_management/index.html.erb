@@ -1,0 +1,74 @@
+<h1>Lan Management</h1>
+
+<h2>Ticket Activation</h2>
+<h2>Tickets due to be activated</h2>
+<table>
+  <thead>
+  <tr>
+    <th>Purchaser</th>
+    <th>Ticket type</th>
+    <th>Paid</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @lan.attendees.each do |item| %>
+    <% if item.item_order.ticket_activated==false %>
+      <tr>
+        <td><%= item.member.display_name %></td>
+        <td><%= ticket_type(item.ticket_type) %></td>
+        <td><%= paid_display(item.item_order.order.paid) %></td>
+        <td><%= link_to "Activate ticket",lan_management_activate_ticket_path(item),class: "button",method: :post %></td>
+      </tr>
+    <% end %>
+
+  <% end %>
+  </tbody>
+</table>
+
+<h2>Tickets that have been activated</h2>
+<table>
+  <thead>
+  <tr>
+    <th>Purchaser</th>
+    <th>Ticket type</th>
+    <th>Paid</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @lan.attendees.each do |item| %>
+    <% if item.item_order.ticket_activated==true %>
+      <tr>
+        <td><%= item.member.display_name %></td>
+        <td><%= ticket_type(item.ticket_type) %></td>
+        <td><%= paid_display(item.item_order.order.paid) %></td>
+        <td><%= link_to "Activate ticket",lan_management_activate_ticket_path(item),class: "button",method: :post %></td>
+      </tr>
+    <% end %>
+
+  <% end %>
+  </tbody>
+</table>
+<h2>Door ticket purchasing</h2>
+<table>
+  <thead>
+  <tr>
+    <th>Ticket type</th>
+    <th>Price</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @lan.admin_items.each do |ticket| %>
+    <tr>
+      <td><%= ticket.name %></td>
+      <td>£<%= ticket.price %></td>
+      <td><%= link_to "In person payment",lan_management_add_ticket_path(ticket),class: "button",method: :post %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+<%= form_for @ticket,url:lan_management_add_ticket_url  do |f| %>
+  <%= f.number_field :ticket_type %>
+<% end %>

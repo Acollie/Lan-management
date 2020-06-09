@@ -1,0 +1,28 @@
+<h1>Lan : <%= @lan.name %></h1>
+<h3>About : <%= @lan.about %></h3>
+<h3>Location : <%= @lan.location %></h3>
+<h3>Start Date: <%= @lan.start_date %></h3>
+
+<h2><strong>Lan Events</strong></h2>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Time</th>
+  </tr>
+  <% @lan.events.each do |event| %>
+    <tr>
+      <td><%= event.name %></td>
+      <td><%= event.start_time %></td>
+    </tr>
+  <% end %>
+</table>
+
+<h3><strong>Attendees :<%= @lan.members.count %></strong></h3>
+<table>
+  <tr><th>Name</th></tr>
+  <% @lan.members.each do |member| %>
+    <tr>
+      <td><%= member.display_name %></td>
+    </tr>
+  <% end %>
+</table>

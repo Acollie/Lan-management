@@ -1,0 +1,31 @@
+<h1>Seat Booking</h1>
+<table>
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Members</th>
+    <th>Creator</th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @seatbooking.each do |seat_booking| %>
+    <tr>
+      <td><%= seat_booking.name %></td>
+      <td><%= seat_booking.members.count %></td>
+      <td><%= seat_booking.owner.display_name %></td>
+      <% if current_member.seat_group_id == seat_booking.id%>
+          <td>In seat booking</td>
+        <% else %>
+          <td><%= link_to "Join",seat_booking_join_path(seat_booking),method:"post",class:'button' %></td>
+
+        <% end %>
+
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<%= link_to "New Seat Booking",seat_booking_new_path,class: "button"%>
+<%# form_for %>
+<%#= f.collection_select :id, @seatbooking.order(:name),:id,:name, include_blank: true %>

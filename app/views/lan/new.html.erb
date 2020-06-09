@@ -1,0 +1,24 @@
+<h1>New Lan</h1>
+<%= form_for @lan,url: lan_create_path do |f| %>
+  <%= f.label :"Lan Name" %>
+  <%= f.text_field :name %>
+  <%= f.label :"Lan description" %>
+  <%= f.text_field :about %>
+  <%= f.label :"Lan Location" %>
+  <%= f.text_field :location %>
+  <%= f.label :"Lan Start" %>
+  <%= f.date_select :start_date %>
+  <%= f.label :"Lan end" %>
+  <%= f.date_select :end_date %>
+  <%= f.label :"Ticket availability" %>
+  <%= f.check_box :tickets_available %>
+  <%= f.label :"Ticket member price" %>
+  <%= f.number_field :tickets_price_member %>
+  <%= f.label :"Ticket non member price" %>
+  <%= f.number_field :ticket_price_non_member %>
+  <%= f.label :"Ticket visitor price" %>
+  <%= f.number_field :ticket_price_visitor %>
+  <p>When a lan is created a corresponding Lan ticket is created</p>
+  <%= f.submit %>
+<% end %>
+

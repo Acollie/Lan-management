@@ -1,0 +1,40 @@
+// Place all the styles related to the public controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+html{
+  //font-family: 'Open Sans', sans-serif;
+  top: 0px;
+  margin: 0px;
+}.info{
+  background-color: #eeeeee;
+  float:left;
+ }.image{
+  position: relative;
+     flex: auto;
+    float: right;
+  top: 0px;
+
+   }
+.home_video {
+  margin: 0px;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  object-fit: cover;
+  top: 0px;
+  left: 0px;
+  z-index: -2;
+  clear: both;
+}.home-video-wrapper {
+   height: 100vh;
+   display: flex;
+ }
+.hero-text{
+   text-align: center;
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   color: white;
+   font-size: 35px;
+ }

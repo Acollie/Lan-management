@@ -1,0 +1,8 @@
+<h2>New Seating Group</h2>
+<%= form_for SeatGroup.new,url:seat_booking_create_url do |f|  %>
+  <%= f.label "Group name" %>
+  <%= f.text_field :name %>
+  <%#= f.label "Group Password (leave blank for no password)" %>
+  <%#= f.password_field :password %>
+  <%= f.submit "New Group" %>
+<% end %>

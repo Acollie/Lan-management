@@ -1,0 +1,23 @@
+<h1>Profile edit</h1>
+<%= form_for current_member,url: profile_update_path do |f| %>
+  <h3>Lan Van info</h3>
+  <p>First Name</p>
+  <%= f.text_field :first_name %>
+  <p>Surname</p>
+  <%= f.text_field :surname %>
+  <p>Display Name</p>
+  <%= f.text_field :display_name %>
+  <h3>Lan Van info</h3>
+  <%= f.label "Do you require lan pickup?" %>
+  <%= f.check_box :lan_van_collection_required %>
+  <%= f.label "Do you require lan drop-off?" %>
+  <%= f.check_box :lan_van_dropoff_required %>
+  <%= f.label "What is your address?" %>
+  <%= f.text_area :lan_van_address %>
+  <%= f.label "What is your mobile number?" %>
+  <%= f.text_field :lan_van_phone_number %>
+  <%= f.label "What is your postcode?" %>
+  <%= f.text_field :lan_van_post_code %>
+  <p></p>
+  <%= f.submit %>
+<% end %>

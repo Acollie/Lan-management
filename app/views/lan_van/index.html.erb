@@ -1,0 +1,23 @@
+<h1>LanVan</h1>
+<table>
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Pickup</th>
+      <th>Dropoff</th>
+    <th>Post code</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @members.each do |member| %>
+
+    <tr>
+      <td><%=member.display_name %></td>
+      <td><%= member.lan_van_collection_required %></td>
+      <td><%= member.lan_van_dropoff_required %></td>
+      <td><%= member.lan_van_post_code %></td>
+    </tr>
+  <% end %>
+
+  </tbody>
+</table>

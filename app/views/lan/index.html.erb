@@ -1,0 +1,59 @@
+<h1>Future Lan's</h1>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Attendees</th>
+    <th>Start Date</th>
+    <th>Actions</th>
+  </tr>
+
+  <% @lans_future.each do |event| %>
+    <tr>
+      <td><%= event.name %></td>
+      <td><%= event.attendees.count %></td>
+      <td><%= table_date(event.start_date) %></td>
+      <td>
+        <%= link_to 'More info',lan_show_url(event),class: 'button' %>
+        <% if current_member %>
+          <% if current_member.committee %>
+            <%= link_to 'Edit Lan',lan_edit_url(event),class: 'button' %>
+          <% end %>
+
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+
+<h1>Past Lan's</h1>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Attendees</th>
+    <th>Start Date</th>
+    <th>Actions</th>
+  </tr>
+
+    <% @lans_past.each do |event| %>
+      <tr>
+      <td><%= event.name %></td>
+      <td><%= event.attendees.count %></td>
+      <td><%= table_date(event.start_date) %></td>
+        <td>
+          <%= link_to 'More info',lan_show_url(event),class: 'button' %>
+          <% if current_member %>
+            <% if current_member.committee %>
+              <%= link_to 'Edit Lan',lan_edit_url(event),class: 'button' %>
+            <% end %>
+
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+</table>
+
+<% unless @lan.nil? %>
+  <h1>Stats</h1>
+  <small>Largest Lan:<%= @largest.name %> <%= @largest.id %> <%= @largest.attendees.count %></small>
+  <small>Smallest Lan:<%= @smallest.name %><%= @smallest.id %><%= @smallest.attendees.count %></small>
+<% end %>

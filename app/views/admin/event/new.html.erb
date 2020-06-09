@@ -1,0 +1,10 @@
+<h1>Admin::Event#new</h1>
+<%= form_for :event,url: admin_event_create_path do |f|%>
+  <p>Name</p>
+  <%= f.text_field :name %>
+  <p>Is competition</p>
+  <%= f.check_box :is_competition %>
+  <p>Start time</p>
+  <%= f.datetime_select :start_time %>
+  <%= f.submit %>
+<% end %>

@@ -1,0 +1,36 @@
+<%= javascript_pack_tag 'type_up_public' %>
+<%= javascript_pack_tag 'count_down' %>
+
+<div class="home-video-wrapper">
+  <div class="hero-text" id="text_change"><h1></h1></div>
+</div>
+
+<div>
+  <div class="info">
+    <div class="flex">
+      <div class="row">
+        <div class="card"><h2>Members </h2><p id="members_countup"></p></div>
+        <div class="card"><h2>Number of lan's </h2><p id="lan_countup"></p></div>
+        <div class="card"><h2>Number of Events </h2><p id="event_countup"></p></div>
+        <div class="card"><h2>Next Lan in </h2><p id="date_countdown"></p></div>
+
+      </div>
+    </div>
+    <div class="card fluid">
+      <h2>Lan site info</h2>
+    </div>
+
+    </div>
+    <div class="flex">
+      <div class="card">
+        <%= link_to 'Register',new_member_registration_path,class:'button' %>
+        <%= link_to "login",new_member_session_path,class: 'button' %>
+      </div>
+      <div class="card">
+        Twitter link
+      </div>
+    </div>
+</div>
+
+<footer>
+</footer>

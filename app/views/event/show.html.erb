@@ -1,0 +1,32 @@
+<h1>Event <%= @event.name %></h1>
+<h1>Start Time <%= long_date(@event.start_time) %></h1>
+
+
+<% if @event.is_competition? %>
+  <% if current_member %>
+    <%= form_for :score,url:event_score_add_path(@event.id)  do |f| %>
+      <div>
+        Your Score:<%= f.number_field :amount %>
+      </div>
+
+      <%= f.submit %>
+    <% end %>
+
+  <% end %>
+  <% unless @event.scores.max().nil? %>
+    <h1> Best: <%= @event.scores.max().amount %> by <%= @event.scores.max().member.display_name %></h1>
+  <% end %>
+
+<table>
+  <tr>
+    <th>Score</th>
+    <th>User</th>
+  </tr>
+    <% @event.scores.each do |score| %>
+    <tr>
+      <td><%= score.amount %></td>
+      <td><%= score.member.display_name %></td>
+    </tr>
+    <% end %>
+</table>
+<% end %>

@@ -1,0 +1,21 @@
+<h1>Member info</h1>
+<h2>First name: <%= @member.first_name %></h2>
+<h2>Surname: <%= @member.surname %></h2>
+<h2>Balance: <%= @member.balance %></h2>
+
+<table>
+  <tr>
+    <th>Event</th>
+    <th>Score</th>
+  </tr>
+<% @member.scores.each do |event| %>
+  <tr>
+    <td><%= event.event.name %></td>
+    <td><%= event.amount %></td>
+  </tr>
+
+
+<% end %>
+</table>
+
+<%= link_to "Edit",admin_member_edit_path(@member.id),class: "button" %>

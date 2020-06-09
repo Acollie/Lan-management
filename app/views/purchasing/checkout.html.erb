@@ -1,0 +1,33 @@
+<h1>Checkout</h1>
+<table>
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Price</th>
+    <th>Quantity</th>
+  </tr>
+  </thead>
+
+<% @order.item_orders.each do |order| %>
+  <tbody>
+  <tr>
+    <td><%= order.admin_item.name %></td>
+    <td><%= order.price %></td>
+    <td><%= order.quantity %></td>
+  </tr>
+  </tbody>
+<% end %>
+</table>
+<div class="card">
+  <h1>Total price<%= @order.total_price %></h1>
+</div>
+<%= form_tag purchasing_payment_path(@order.id) do %>
+
+<script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+        data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+        data-description="<%= "TODO CHANGE THIS" %>"
+        data-name="<%= "TODO CHANGE THIS" %>"
+        data-amount="<%= @order.total_price*100 %>"
+        data-currency="gbp"
+        ></script>
+<% end %>

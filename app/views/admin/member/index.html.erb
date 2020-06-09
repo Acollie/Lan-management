@@ -1,0 +1,17 @@
+<h1>Member list</h1>
+<table>
+  <tr>
+    <th>First name</th>
+    <th>Display name</th>
+    <th>Committee</th>
+    <th>Actions</th>
+  </tr>
+<% @members.each do |member| %>
+  <tr>
+    <td><%= link_to member.first_name, admin_member_show_path(member) %></td>
+    <td><%= link_to member.display_name, admin_member_show_path(member) %></td>
+    <td><%= member.committee %></td>
+    <td><%= link_to 'Edit',admin_member_edit_path(member),class: 'button' %></td>
+  </tr>
+<% end %>
+</table>

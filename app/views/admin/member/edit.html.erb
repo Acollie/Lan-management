@@ -1,0 +1,13 @@
+<h1>Admin::Member#edit</h1>
+<%= form_for @member,url: admin_member_update_path(@member),method:'post' do |f|%>
+  <p>First name</p>
+  <%= f.text_field :first_name %>
+  <p>Surname</p>
+  <%= f.text_field :surname %>
+  <p>Display name</p>
+  <%= f.text_field :display_name %>
+  <p>Committee</p>
+  <%= f.check_box :committee %>
+  <p></p>
+  <%= f.submit %>
+<% end %>

@@ -1,0 +1,51 @@
+<h1>Admin Page</h1>
+<% if @lan.nil? %>
+  <h2>Next lan not planned</h2>
+<% else %>
+  <h2>Next Lan:<%= @lan.name %></h2>
+  <h2>Start Date:<%= long_date(@lan.start_date) %></h2>
+<% end %>
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+  </tr>
+  <% @tickets.each do |ticket| %>
+  <tr>
+    <td><%= ticket.name %></td>
+    <td></td>
+  </tr>
+  <% end %>
+</table>
+<h2>Members</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Display Name</th>
+      <th>Valid Membership</th>
+      <th>Is committee?</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @members.each do |member| %>
+      <tr>
+        <td><%= member.first_name %> <%= member.surname %></td>
+        <td><%= member.display_name %></td>
+        <td><%= member.paid_membership %></td>
+        <td><%= member.committee %></td>
+        <td> <%= link_to "Edit",admin_member_edit_path(member),class: 'button' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to "Edit Items",admin_items_path,class: 'button' %>
+<%= link_to 'Events',admin_event_index_path,class:'button' %>
+<%= link_to 'Members',admin_member_index_path,class: 'button' %>
+<%= link_to 'Add Lan',lan_new_path,class: 'button' %>
+<%= link_to "Edit Lans",lan_index_url,class: "button" %>
+<%= link_to "Lan Van",lan_van_index_path,class: 'button' %>
+<%= link_to 'Lan Mangement screen',lan_management_index_path,class: "button" %>
+<%= link_to 'In person payment',purchasing_orders_path,class: "button" %>
