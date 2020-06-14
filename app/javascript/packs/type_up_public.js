@@ -32,7 +32,7 @@ window.onload = function () {
     json_reponse();
 
     var options_type = {
-        strings: ["","LSUVGS does", "Lan's","Tournaments","Gamenight's","Pub n grub","Socials"],
+        strings: ["","thing 1", "thing 2","thing 3","thing 4","thing 5"],
         typeSpeed: 40,
         startDelay: 2000,
         loop:true,
